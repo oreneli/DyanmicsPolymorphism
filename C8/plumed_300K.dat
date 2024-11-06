@@ -1,0 +1,55 @@
+
+cell: CELL
+
+a: CUSTOM ...
+
+        ARG=cell.ax,cell.ay,cell.az
+        VAR=ax,ay,az
+        FUNC=sqrt(ax*ax+ay*ay+az*az)
+        PERIODIC=NO
+...
+
+b: CUSTOM ...
+
+        ARG=cell.bx,cell.by,cell.bz
+        VAR=bx,by,bz
+        FUNC=sqrt(bx*bx+by*by+bz*bz)
+        PERIODIC=NO
+...
+
+c: CUSTOM ...
+
+        ARG=cell.cx,cell.cy,cell.cz
+        VAR=cx,cy,cz
+        FUNC=sqrt(cx*cx+cy*cy+cz*cz)
+        PERIODIC=NO
+...
+
+alpha: CUSTOM ...
+
+   ARG=cell.bx,cell.by,cell.bz,cell.cx,cell.cy,cell.cz
+   VAR=ax,ay,az,bx,by,bz
+   FUNC=acos((ax*bx+ay*by+az*bz)/sqrt((ax*ax+ay*ay+az*az)*(bx*bx+by*by+bz*bz)))
+   PERIODIC=NO
+...
+
+beta: CUSTOM ...
+
+   ARG=cell.ax,cell.ay,cell.az,cell.cx,cell.cy,cell.cz
+   VAR=ax,ay,az,bx,by,bz
+   FUNC=acos((ax*bx+ay*by+az*bz)/sqrt((ax*ax+ay*ay+az*az)*(bx*bx+by*by+bz*bz)))
+   PERIODIC=NO
+...
+
+gamma: CUSTOM ...
+
+   ARG=cell.ax,cell.ay,cell.az,cell.bx,cell.by,cell.bz
+   VAR=ax,ay,az,bx,by,bz
+   FUNC=acos((ax*bx+ay*by+az*bz)/sqrt((ax*ax+ay*ay+az*az)*(bx*bx+by*by+bz*bz)))
+   PERIODIC=NO
+...
+
+
+
+PRINT ARG=* FILE=COLVAR STRIDE=1000
+
